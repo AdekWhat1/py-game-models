@@ -19,10 +19,10 @@ def main() -> None:
                     race=race
                 )
 
-            if data["guild"]:
+            if data.get("guild"):
                 guild, _ = Guild.objects.get_or_create(
-                    name=data["guild"]["name"],
-                    defaults={"description": data["guild"]["description"]}
+                    name=data.get("guild")["name"],
+                    defaults={"description": data.get("guild")["description"]}
                 )
             else:
                 guild = None
